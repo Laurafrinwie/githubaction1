@@ -1,0 +1,41 @@
+name: Sample Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: create a file
+        run: touch github.txt
+
+      - name: multipleshellcommands
+        run: 
+           yum install jdk
+           echo "i am learning github action"
+           echo "myfirstgithubaction passed" >> github.txt
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
