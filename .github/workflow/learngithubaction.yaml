@@ -16,7 +16,7 @@ jobs:
 
       - name: multipleshellcommands
         run: 
-           yum install jdk
+           apt install jdk
            echo "i am learning github action"
            echo "myfirstgithubaction passed" >> github.txt
 
