@@ -33,9 +33,3 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
-
-      - name: Build project
-        run: npm run build
-
-      - name: Run tests
-        run: npm test
